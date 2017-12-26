@@ -39,14 +39,14 @@ export default function loadInfo() {
             .sort((a,b) => (a.epoch * 10000 + a.offset / 10000) - (b.epoch * 10000 + b.offset / 10000))]).map(arrr =>
               [
                 arrr[0],
-                _.range(0,arrr[1].map(x=>x.epoch).reduce((a,b) => a < b ? b : a, 0) + 1, STEP) .map(val =>
+                ((endpoint=>(_.range(0, endpoint, endpoint / 100)))(arrr[1].map(x=>x.epoch).reduce((a,b) => a < b ? b : a, 0) + 1)).map(val =>
                 hack(arrr[1].map(obj => Object.assign(
                   {},
                   obj,
                   {offset: obj.offset / (arrr[1][1].offset * arrr[1].filter(j => j.epoch === 0).length)})).map(obj => ([obj.epoch + obj.offset, obj.result[0]])),
-                  val)).map(x => x[1])
+                  val))
               ]
-            ));
+            ).map(arr => [arr[0], {data: arr[1].map(x => x[1]), step: arr[1][1][0] - arr[1][0][0] }]) );
     resolve({
       data: res
     });

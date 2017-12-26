@@ -398,7 +398,7 @@ const colors = [
 // 0.01 is hardcoded - fix this later
 const STEP = 0.01;
 const data = ind => ({
-  labels: lodash.range(0, lodash.max(Object.values(ind).map(xx => xx.length * STEP)), STEP).map(xx => xx.toFixed(1)),
+  labels: lodash.range(0, lodash.max(Object.values(ind).map(xx => xx.data.length * xx.step)), lodash.max(Object.values(ind).map(xx => xx.step))).map(xx => xx.toFixed(1)),
   datasets: Object.keys(ind).map(foo => ({
     label: foo,
     fill: false,
@@ -418,7 +418,7 @@ const data = ind => ({
     pointHoverBorderWidth: 2,
     pointRadius: 1,
     pointHitRadius: 10,
-    data: ind[foo]
+    data: ind[foo].data
   }))
 });
 
