@@ -32,6 +32,9 @@ module.exports = Object.assign({
         {property: 'og:creator', content: '@meeshkan'},
         {property: 'og:image:width', content: '200'},
         {property: 'og:image:height', content: '200'}
+      ],
+      script: [
+        {type: 'text/javascript', src: 'https://cdn.plot.ly/plotly-latest.min.js'}
       ]
     }
   },
