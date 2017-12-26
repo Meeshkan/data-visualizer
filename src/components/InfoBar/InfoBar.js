@@ -399,27 +399,29 @@ const colors = [
 const STEP = 0.01;
 const data = ind => ({
   labels: lodash.range(0, lodash.max(Object.values(ind).map(xx => xx.data.length * xx.step)), lodash.max(Object.values(ind).map(xx => xx.step))).map(xx => xx.toFixed(1)),
-  datasets: Object.keys(ind).map(foo => ({
-    label: foo,
-    fill: false,
-    lineTension: 0.1,
-    backgroundColor: lodash.sample(colors), // 'rgba(75,192,192,0.4)',
-    borderColor: lodash.sample(colors), // 'rgba(75,192,192,1)',
-    borderCapStyle: 'butt',
-    borderDash: [],
-    borderDashOffset: 0.0,
-    borderJoinStyle: 'miter',
-    pointBorderColor: lodash.sample(colors), // 'rgba(75,192,192,1)',
-    pointBackgroundColor: '#fff',
-    pointBorderWidth: 1,
-    pointHoverRadius: 5,
-    pointHoverBackgroundColor: lodash.sample(colors), // 'rgba(75,192,192,1)',
-    pointHoverBorderColor: lodash.sample(colors), // 'rgba(220,220,220,1)',
-    pointHoverBorderWidth: 2,
-    pointRadius: 1,
-    pointHitRadius: 10,
-    data: ind[foo].data
-  }))
+  datasets: Object.keys(ind).map(foo => {
+    const color = lodash.sample(colors);
+    return {
+      label: foo,
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: color, // 'rgba(75,192,192,0.4)',
+      borderColor: color, // 'rgba(75,192,192,1)',
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: color, // 'rgba(75,192,192,1)',
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: lodash.sample(colors), // 'rgba(75,192,192,1)',
+      pointHoverBorderColor: lodash.sample(colors), // 'rgba(220,220,220,1)',
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
+      data: ind[foo].data
+  }})
 });
 
 @connect(
