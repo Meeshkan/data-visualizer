@@ -15,21 +15,21 @@ module.exports = Object.assign({
   apiHost: process.env.APIHOST || 'localhost',
   apiPort: process.env.APIPORT,
   app: {
-    title: 'React Redux Example',
-    description: 'All the modern best practices in one example.',
+    title: 'Meeshkan Data Visualizer',
+    description: 'The fastest Machine Learning data visualizer on this size of the Mississippi!',
     head: {
-      titleTemplate: 'React Redux Example: %s',
+      titleTemplate: 'Meeshkan Data Visualizer: %s',
       meta: [
         {name: 'description', content: 'All the modern best practices in one example.'},
         {charset: 'utf-8'},
-        {property: 'og:site_name', content: 'React Redux Example'},
-        {property: 'og:image', content: 'https://react-redux.herokuapp.com/logo.jpg'},
+        {property: 'og:site_name', content: 'Meeshkan Data Visualizer'},
+        {property: 'og:image', content: 'https://s3-eu-west-1.amazonaws.com/meeshkan-public-assets/iconMem.png'},
         {property: 'og:locale', content: 'en_US'},
-        {property: 'og:title', content: 'React Redux Example'},
-        {property: 'og:description', content: 'All the modern best practices in one example.'},
+        {property: 'og:title', content: 'Meeshkan Data Visualizer'},
+        {property: 'og:description', content: 'The fastest Machine Learning data visualizer on this size of the Mississippi!'},
         {property: 'og:card', content: 'summary'},
-        {property: 'og:site', content: '@erikras'},
-        {property: 'og:creator', content: '@erikras'},
+        {property: 'og:site', content: '@meeshkan'},
+        {property: 'og:creator', content: '@meeshkan'},
         {property: 'og:image:width', content: '200'},
         {property: 'og:image:height', content: '200'}
       ]
