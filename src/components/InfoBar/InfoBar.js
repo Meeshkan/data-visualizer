@@ -14,9 +14,10 @@ const options = {
   }
 };
 
+// 0.01 is hardcoded - fix this later
+const STEP = 0.01;
 const data = ind => ({
-  // 0.1 is hardcoded - fix this later
-  labels: lodash.range(0, lodash.max(Object.values(ind).map(xx => xx.length * 0.1)), 0.1).map(xx => Math.abs(Math.round(xx) - xx) < 0.01 ? xx.toFixed(1) : ''),
+  labels: lodash.range(0, lodash.max(Object.values(ind).map(xx => xx.length * STEP)), STEP).map(xx => xx.toFixed(1)),
   datasets: Object.keys(ind).map(foo => ({
     label: foo,
     fill: false,

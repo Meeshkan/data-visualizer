@@ -21,7 +21,8 @@ export default function loadInfo() {
       dir :
       null
     ]).filter(fi => fi !== null));
-    // hardcodes 0.1 as step for now...
+    // hardcodes STEP for now
+    const STEP = 0.01
     const res =   _.fromPairs(_.toPairs(
           _.groupBy(
             walkSync('.')
@@ -38,7 +39,7 @@ export default function loadInfo() {
             .sort((a,b) => (a.epoch * 10000 + a.offset / 10000) - (b.epoch * 10000 + b.offset / 10000))]).map(arrr =>
               [
                 arrr[0],
-                _.range(0,arrr[1].map(x=>x.epoch).reduce((a,b) => a < b ? b : a, 0) + 1, 0.1) .map(val =>
+                _.range(0,arrr[1].map(x=>x.epoch).reduce((a,b) => a < b ? b : a, 0) + 1, STEP) .map(val =>
                 hack(arrr[1].map(obj => Object.assign(
                   {},
                   obj,
